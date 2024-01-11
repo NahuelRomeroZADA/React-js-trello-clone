@@ -1,0 +1,71 @@
+// Variables
+$primary-color: #0079bf;
+$background-color: #ffffff;
+$card-background-color: #ebecf0;
+
+// Estilo global
+body {
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: $background-color;
+}
+
+// Contenedor principal
+#root {
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+}
+
+// Tarjetas y listas
+.list-container {
+  background-color: $card-background-color;
+  border-radius: 3px;
+  width: 300px;
+  margin: 8px;
+  padding: 8px;
+  box-shadow: 0 1px 0 rgba(9, 30, 66, 0.25);
+}
+
+.list-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+
+  h2 {
+    font-size: 18px;
+    margin: 0;
+    color: $primary-color;
+  }
+}
+
+.card {
+  background-color: #fff;
+  border-radius: 3px;
+  box-shadow: 0 1px 0 rgba(9, 30, 66, 0.25);
+  padding: 8px;
+  margin-bottom: 8px;
+}
+
+// Botones y otros elementos
+button {
+  background-color: $primary-color;
+  color: #fff;
+  border: none;
+  padding: 8px 12px;
+  cursor: pointer;
+  border-radius: 3px;
+
+  &:hover {
+    background-color: darken($primary-color, 10%);
+  }
+}
+
+// Responsividad
+@media (max-width: 768px) {
+  .list-container {
+    width: 100%;
+  }
+}
