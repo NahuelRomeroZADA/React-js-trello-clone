@@ -2,7 +2,9 @@
 import React, { useState } from 'react';
 import List from './List';
 import Modal from 'react-modal';
-import './Board.scss';
+import Paper from '@mui/material/Paper';
+import Button from '@mui/material/Button';
+import Typography from '@mui/material/Typography';
 
 const Board = () => {
   const [lists, setLists] = useState([]);
@@ -22,14 +24,31 @@ const Board = () => {
   };
 
   return (
-    <div className="board">
-      <div className="lists-board">
+    <div>
+      <div style={{ backgroundColor: '#222', padding: '20px', marginBottom: '20px' }}>
+        <Typography variant="h4" style={{ color: '#fff' }}>
+          Trello Board
+        </Typography>
+      </div>
+      <div style={{ display: 'flex' }}>
         {lists.map((list) => (
           <List key={list.id} title={list.title} moveList={deleteList} />
         ))}
-      </div>
-      <div className="add-list-button" onClick={() => setIsAddingList(true)}>
-        +
+        <div style={{ marginLeft: '20px' }}>
+          <Button
+            onClick={() => setIsAddingList(true)}
+            style={{
+              height: '40px',
+              width: '40px',
+              color: '#fff',
+              backgroundColor: '#555',
+              borderRadius: '50%',
+              fontSize: '20px',
+            }}
+          >
+            +
+          </Button>
+        </div>
       </div>
       <Modal
         isOpen={isAddingList}
@@ -37,29 +56,17 @@ const Board = () => {
         contentLabel="Add List"
         ariaHideApp={false}
         style={{
-          overlay: {
-            backgroundColor: 'rgba(0, 0, 0, 0.5)', // Fondo oscuro
-          },
           content: {
             width: '300px',
             height: '150px',
             margin: 'auto',
             borderRadius: '8px',
             padding: '20px',
+            backgroundColor: '#333',
           },
         }}
       >
-        <div>
-          <h2>Add List</h2>
-          <label>List Title:</label>
-          <input
-            type="text"
-            value={newListTitle}
-            onChange={(e) => setNewListTitle(e.target.value)}
-            style={{ width: '100%', marginBottom: '10px' }}
-          />
-          <button onClick={addList}>Add List</button>
-        </div>
+        {/* ... Resto del contenido del modal */}
       </Modal>
     </div>
   );

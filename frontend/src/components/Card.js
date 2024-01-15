@@ -2,6 +2,9 @@
 import React from 'react';
 import { useDrag } from 'react-dnd';
 import { ItemTypes } from './ItemTypes';
+import Paper from '@mui/material/Paper';
+import Typography from '@mui/material/Typography';
+import Button from '@mui/material/Button';
 
 const Card = ({ title, content, label, labelColor, onDelete }) => {
   const [{ isDragging }, drag] = useDrag({
@@ -12,60 +15,61 @@ const Card = ({ title, content, label, labelColor, onDelete }) => {
     }),
   });
 
-  const cardStyle = {
-    backgroundColor: labelColor, // Usamos labelColor directamente
-    borderRadius: '8px',
-    padding: '10px',
-    marginBottom: '10px',
-    boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)',
-    position: 'relative', // Establecemos posición relativa para posicionar elementos internos
-  };
-
-  const titleStyle = {
-    color: labelColor, // Color del texto del título igual al color de la etiqueta
-    margin: '0', // Eliminamos el margen
-    position: 'absolute', // Establecemos posición absoluta para posicionar en la esquina superior izquierda
-    top: '5px', // Posicionamos en la parte superior con un pequeño margen superior
-    left: '5px', // Posicionamos en la parte izquierda con un pequeño margen izquierdo
-  };
-
-  const contentStyle = {
-    color: 'black', // Color del texto del contenido
-  };
-
-  const contentContainerStyle = {
-    backgroundColor: 'white', // Fondo blanco para el contenido
-    borderRadius: '8px', // Bordes redondeados para el contenido
-    padding: '5px', // Padding para el contenido
-    minHeight: '50px', // Altura mínima del contenedor del contenido
-    position: 'relative', // Establecemos posición relativa para posicionar elementos internos
-  };
-
-  const deleteButtonStyle = {
-    position: 'absolute', // Establecemos posición absoluta para posicionar en la esquina inferior derecha
-    bottom: '5px', // Posicionamos en la parte inferior con un pequeño margen inferior
-    right: '5px', // Posicionamos en la parte derecha con un pequeño margen derecho
-  };
-
   return (
-    <div ref={drag} className={`card ${isDragging ? 'dragging' : ''}`} style={cardStyle}>
-      <div style={contentContainerStyle}>
-        <h3 style={titleStyle}>{title}</h3>
+    <Paper
+      ref={drag}
+      elevation={3}
+      className={`card ${isDragging ? 'dragging' : ''}`}
+      style={{
+        backgroundColor: labelColor,
+        borderRadius: '8px',
+        padding: '10px',
+        marginBottom: '10px',
+        boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)',
+        position: 'relative',
+      }}
+    >
+      <div style={{ position: 'absolute', top: '5px', left: '5px' }}>
+        <Typography variant="h6" style={{ color: labelColor, margin: '0' }}>
+          {title}
+        </Typography>
+      </div>
+      <div
+        style={{
+          backgroundColor: 'white',
+          borderRadius: '8px',
+          padding: '5px',
+          minHeight: '50px',
+          position: 'relative',
+        }}
+      >
         {content && (
           <div>
-            <p style={contentStyle}>{content}</p>
-            <button style={deleteButtonStyle} onClick={onDelete}>
+            <Typography variant="body1" style={{ color: 'black' }}>
+              {content}
+            </Typography>
+            <Button
+              style={{ position: 'absolute', bottom: '5px', right: '5px' }}
+              variant="outlined"
+              color="secondary"
+              onClick={onDelete}
+            >
               Delete
-            </button>
+            </Button>
           </div>
         )}
         {!content && (
-          <button style={deleteButtonStyle} onClick={onDelete}>
+          <Button
+            style={{ position: 'absolute', bottom: '5px', right: '5px' }}
+            variant="outlined"
+            color="secondary"
+            onClick={onDelete}
+          >
             Delete
-          </button>
+          </Button>
         )}
       </div>
-    </div>
+    </Paper>
   );
 };
 
