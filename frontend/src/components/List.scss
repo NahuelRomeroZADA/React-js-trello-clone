@@ -1,75 +1,88 @@
 // frontend/src/components/List.scss
 .list-container {
-  background-color: #ebecf0;
-  border-radius: 4px;
-  width: 300px;
-  margin: 8px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  margin: 10px;
+  padding: 10px;
+}
+
+.list-header {
+  background-color: #ddd;
+  border-bottom: 1px solid #ccc;
   padding: 8px;
-  box-shadow: 0 1px 2px rgba(9, 30, 66, 0.25);
-  white-space: nowrap;
-  vertical-align: top;
-  display: inline-block; /* Cambiamos de flex a inline-block para que se muestre de izquierda a derecha */
+  border-radius: 8px 8px 0 0;
 
-  h2 {
+  input {
     font-size: 16px;
-    margin: 8px 0;
-    color: #172b4d;
+    padding: 5px;
+    border: none;
+    border-radius: 4px;
+  }
+}
+
+.cards-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.card {
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  margin: 8px 0;
+  padding: 8px;
+  transition: background-color 0.3s ease;
+
+  &:hover {
+    background-color: #f0f0f0;
   }
 
-  .list-header {
-    cursor: pointer;
+  .card-header {
+    background-color: #ff6666; // Color rojo como ejemplo
+    border-radius: 8px 8px 0 0;
     padding: 8px;
-    border-bottom: 1px solid #ccc;
-
-    input {
-      font-size: 16px;
-      width: 100%;
-      padding: 8px;
-      border: none;
-      border-radius: 4px;
-    }
-
-    &:hover {
-      background-color: #f4f5f7;
-    }
-  }
-
-  .cards-list {
-    display: flex;
-    flex-direction: column;
-  }
-
-  .add-card {
-    display: flex;
-    flex-direction: column; /* Cambiamos de fila a columna */
-    padding: 8px;
-
-    textarea {
-      width: calc(100% - 16px);
-      margin-bottom: 8px;
-      padding: 8px;
-      border: 1px solid #ccc;
-      border-radius: 4px;
-      resize: none;
-    }
-
-    button {
-      background-color: #5aac44;
+    h3 {
+      margin: 0;
       color: #fff;
-      border: none;
-      padding: 8px;
-      border-radius: 4px;
-      cursor: pointer;
-      width: calc(100% - 16px);
-      box-sizing: border-box;
-
-      &:hover {
-        background-color: #4d9839;
-      }
     }
+  }
+
+  .card-content {
+    p {
+      margin: 8px 0;
+    }
+  }
+
+  button {
+    background-color: #cc0000; // Botón rojo como ejemplo
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    padding: 5px 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
 
     &:hover {
-      background-color: #dfe3e6;
+      background-color: #990000;
+    }
+  }
+}
+
+.add-card {
+  text-align: center;
+  margin-top: 10px;
+
+  button {
+    background-color: #009900; // Botón verde como ejemplo
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    padding: 5px 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+
+    &:hover {
+      background-color: #006600;
     }
   }
 }

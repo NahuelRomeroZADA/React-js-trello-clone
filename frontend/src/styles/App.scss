@@ -69,3 +69,28 @@ button {
     width: 100%;
   }
 }
+
+.App {
+  position: relative;
+  min-height: 100vh;
+  overflow: hidden;
+
+ 
+
+  .board {
+    display: flex;
+    /* Resto del código para el board */
+
+    .add-list-btn {
+      background: rgba(255, 255, 255, 0.7); /* Transparencia para el botón */
+      color: #333; /* Color de texto */
+      border: 1px solid #ccc;
+      padding: 10px;
+      cursor: pointer;
+
+      &:hover {
+        background: rgba(255, 255, 255, 0.9); /* Cambio de color al pasar el mouse */
+      }
+    }
+  }
+}

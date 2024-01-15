@@ -5,7 +5,7 @@ import { Provider } from 'react-redux';
 import store from './redux/store';
 import './styles/App.scss';
 import List from './components/List';
-import { ItemTypes } from './components/ItemTypes';
+// import { ItemTypes } from './components/ItemTypes';
 
 function App() {
   const [lists, setLists] = useState(['To Do', 'In Progress', 'Done']);
